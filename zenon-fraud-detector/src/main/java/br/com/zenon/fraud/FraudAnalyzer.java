@@ -45,7 +45,7 @@ public class FraudAnalyzer {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public Map<TransactionType, Long> countFraudsByType(){
+    public Map<TransactionType, Long> countFraudsByType() {
         return transactions.stream()
                 .filter(Transaction::isFraud)
                 .collect(Collectors.groupingBy(

@@ -1,7 +1,6 @@
 package br.com.zenon.fraud;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -18,13 +17,13 @@ public class TransactionIngestor {
             int count = 0;
             String linha;
             reader.readLine();
-            while ((linha = reader.readLine()) != null && count < 50000) {
+            while ((linha = reader.readLine()) != null && count < 100000) {
                 try {
                     BigDecimal amount;
                     String[] campos = linha.split(",");
                     int step = Integer.parseInt(campos[0]);
                     TransactionType type = TransactionType.from(campos[1]).orElseThrow(() -> new IllegalArgumentException("Tipo inválido de transação: " + campos[1]));
-                        if (campos[2] == null || campos[2].isBlank() || campos[2].isEmpty() || new BigDecimal(campos[2]).compareTo(BigDecimal.ZERO) < 0) {
+                    if (campos[2] == null || campos[2].isBlank() || campos[2].isEmpty() || new BigDecimal(campos[2]).compareTo(BigDecimal.ZERO) < 0) {
                         throw new IllegalArgumentException("O valor deve ser maior ou igual a zero.");
                     } else {
                         amount = new BigDecimal(campos[2]);
