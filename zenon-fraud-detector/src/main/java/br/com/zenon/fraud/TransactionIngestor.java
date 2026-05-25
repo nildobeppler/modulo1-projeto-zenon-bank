@@ -18,7 +18,7 @@ public class TransactionIngestor {
             int count = 0;
             String linha;
             reader.readLine();
-            while ((linha = reader.readLine()) != null && count < 1000) {
+            while ((linha = reader.readLine()) != null && count < 50000) {
                 try {
                     BigDecimal amount;
                     String[] campos = linha.split(",");
