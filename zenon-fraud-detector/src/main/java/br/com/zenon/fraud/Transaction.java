@@ -6,12 +6,9 @@ public record Transaction(
         int step,
         TransactionType type,
         BigDecimal amount,
-        String nameOrig,
-        BigDecimal oldBalanceOrig,
-        BigDecimal newBalanceOrig,
-        String nameDest,
-        BigDecimal oldBalanceDest,
-        BigDecimal newBalanceDest,
+        TransactionCustomer origin,
+        TransactionCustomer recipient,
         boolean isFraud,
         boolean isFlaggedFraud
-) {}
+) {
+}
