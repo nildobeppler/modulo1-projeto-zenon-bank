@@ -14,10 +14,9 @@ public class TransactionIngestor {
         List<Transaction> transactions = new ArrayList<>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            int count = 0;
             String linha;
             reader.readLine();
-            while ((linha = reader.readLine()) != null && count < 100000) {
+            while ((linha = reader.readLine()) != null) {
                 try {
                     BigDecimal amount;
                     String[] campos = linha.split(",");
@@ -33,7 +32,6 @@ public class TransactionIngestor {
                     boolean isFraud = campos[9].equals("1");
                     boolean isFlaggedFraud = campos[10].equals("1");
                     transactions.add(new Transaction(step, type, amount, origin, recipient, isFraud, isFlaggedFraud));
-                    count++;
                 } catch (Exception e) {
                     System.err.println("Erro: " + linha + " | " + e);
                 }

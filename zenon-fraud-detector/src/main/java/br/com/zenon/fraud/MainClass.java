@@ -1,9 +1,6 @@
 package br.com.zenon.fraud;
 
 import java.io.IOException;
-import java.text.NumberFormat;
-import java.util.List;
-import java.util.Locale;
 
 public class MainClass {
 
@@ -13,8 +10,7 @@ public class MainClass {
 //        final String FILENAME = "../data/paysim_with_bad_data.csv";
 
 //        new AnaliseDadosStream().load(FILENAME);
-        new BenchmarkBusca().load(FILENAME);
+//        new BenchmarkBusca().load(FILENAME);
+        new TransactionReport().load(FILENAME);
     }
-
-
 }
